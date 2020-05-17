@@ -2,9 +2,9 @@ import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 import 'package:ctwz/model/allpass.dart';
 
-class ctwzController extends ResourceController {
+class CtwzController extends ResourceController {
 
-  ctwzController(this.context);
+  CtwzController(this.context);
 
   final ManagedContext context; 
 

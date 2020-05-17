@@ -1,5 +1,17 @@
 import 'ctwz.dart';
 import 'controller/ctwz_controller.dart';
+import 'controller/user_controller.dart';
+import 'controller/learn_controller.dart';
+import 'controller/testinfo_controller.dart';
+import 'controller/learninginfo_controller.dart';
+import 'controller/keen_controller.dart';
+import 'controller/favorlist_controller.dart';
+import 'controller/testgenerate_controller.dart';
+import 'controller/register_controller.dart';
+import 'controller/login_controller.dart';
+import 'controller/health_controller.dart';
+import 'controller/userinfo_controller.dart';
+import 'controller/concerned_controller.dart';
 //import 'controller/changtongwuzu_controller.dart';
 
 /// This type initializes an application.
@@ -43,8 +55,56 @@ class CtwzChannel extends ApplicationChannel {
     
     router
     .route('/heroes/[:id]')
-    .link(() => ctwzController(context));
+    .link(() => CtwzController(context));
+
+    router
+    .route('/registers/[:id]')//注册
+    .link(() => RegistersController());//注册信息（生成用户编号、账号密码传递给数据库）
+
+    router
+   .route('/member/[:id]')//登录
+   .link(() => LoginsController());//登录信息（登录后data传给usercontroller）+用户编号
+
+   router
+   .route('/user/[:id]')//用户信息
+   .link(() => UserinfosController())//账户信息
+   .link(() => HealthsController())//个人健康信息（影响卡片学习）
+   .link(() => ConcernedsController());//用户关心的关键词(对应一类卡片，例如提高优先级）
+    //个人中心
+    router
+    .route('/home/learninginfo/[:id]')
+    .link(() => LearnController())//读取卡片编号+类别编号+分区编号+正面标题+反面知识 
+    .link(() => LearninginfoController());//读取卡片的掌握情况（某张卡片是否学习/掌握）
+
+    router
+    .route('/home/testinfo/[:id]')
+    .link(() => TestinfoController());//读取、删除考试情况（包括考题、错题、考试时间）
+
+    router
+    .route('/home/favorlist/[:id]')
+    .link(() => LearnController())//读取卡片分区及详细信息
+    .link(() => LearninginfoController())//读取卡片的掌握情况（某张卡片是否学习/掌握）
+    .link(() => FavorlistController())//读取、删除收藏夹卡片（收藏知识）
+    .link(() => KeenController());//更新分区兴趣分数+用户login编号
+   
+    //学习专区
+    router
+    .route('/learn/[:id]')
+    .link(() => KeenController())//读取分区兴趣分数+用户login编号
+    .link(() => LearnController()) //根据分数推荐卡片
+    .link(() => FavorlistController())//更新收藏夹（收藏知识）
+    .link(() => KeenController());//更新分区兴趣分数+用户login编号
     
+    //测试区
+    router
+    .route('/test/[:id]')//
+    .link(() => LearninginfoController())//读取用户卡片的掌握情况（某张卡片是否学习/掌握）
+    .link(() => TestgeneraterController())//自动生成试卷
+    .link(() => TestinfoController())//新增考试情况（包括考题、错题、考试时间）
+    .link(() => LearninginfoController())//更新卡片的掌握情况（某张卡片是否学习/掌握）
+    .link(() => KeenController());//更新分区兴趣分数+用户login编号
+    
+
    /* router
     .route('/changtongwuzu/[:id]')
     .link(() => changtongwuzuController(context));
