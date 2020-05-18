@@ -14,7 +14,7 @@ class KeenController extends ResourceController {
   }
   
   @Operation.get()
-  Future<Response> getAllHeroes() async {
+  Future<Response> getAllKeens() async {
 
     return Response.ok(_keen);
   }
@@ -22,12 +22,16 @@ class KeenController extends ResourceController {
   @Operation.get('cardnum')
   Future<Response> getCardsByID(@Bind.path('cardnum') int cardnum) async {
     //final id = int.parse(request.path.variables['id']);
-    final hero = _keen.firstWhere((hero) => hero['cardnum'] == cardnum, orElse: () => null);
-    if (hero == null) {
+    final keen = _keen.firstWhere((keen) => keen['cardnum'] == cardnum, orElse: () => null);
+    if (keen == null) {
       return Response.notFound();
     }
 
-    return Response.ok(hero);
+    return Response.ok(keen);
   }
-//@Operation.put
+/*
+@Operation.put()
+Future<Response> updateAllKeens() async {
+
+}*/
 }

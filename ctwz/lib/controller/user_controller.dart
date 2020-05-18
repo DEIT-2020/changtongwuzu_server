@@ -26,12 +26,12 @@ class UsersinfoController extends ResourceController {
   @Operation.get('id')
   Future<Response> getUsersByID(@Bind.path('id') int id) async {
     //final id = int.parse(request.path.variables['id']);
-    final hero = _users.firstWhere((hero) => hero['id'] == id, orElse: () => null);
-    if (hero == null) {
+    final user = _users.firstWhere((user) => user['id'] == id, orElse: () => null);
+    if (user == null) {
       return Response.notFound();
     }
 
-    return Response.ok(hero);
+    return Response.ok(user);
   }
 
  

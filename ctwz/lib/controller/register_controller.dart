@@ -22,6 +22,13 @@ class RegistersController extends ResourceController {
 
     return Response.ok(_registers);
   }
-//@Operation.post
+
+/*
+
+@Operation.post()
+Future<Response> createAllRegisters() async {
+
+}
+*/
 
 }

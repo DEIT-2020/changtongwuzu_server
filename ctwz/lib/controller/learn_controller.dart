@@ -22,12 +22,12 @@ class LearnController extends ResourceController {
   @Operation.get('cardnum')
   Future<Response> getCardsByID(@Bind.path('cardnum') int cardnum) async {
     //final id = int.parse(request.path.variables['id']);
-    final hero = _cards.firstWhere((hero) => hero['cardnum'] == cardnum, orElse: () => null);
-    if (hero == null) {
+    final card = _cards.firstWhere((card) => card['cardnum'] == cardnum, orElse: () => null);
+    if (card == null) {
       return Response.notFound();
     }
 
-    return Response.ok(hero);
+    return Response.ok(card);
   }
 
 }

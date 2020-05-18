@@ -18,22 +18,27 @@ class TestinfoController extends ResourceController {
     return Response.ok(_tests);
   }
   @Operation.get()
-  Future<Response> getAllHeroes() async {
+  Future<Response> getAllTests() async {
 
     return Response.ok(_tests);
   }
 
   @Operation.get('id')
-  Future<Response> getUsersByID(@Bind.path('id') int id) async {
+  Future<Response> getTestsByID(@Bind.path('id') int id) async {
     //final id = int.parse(request.path.variables['id']);
-    final hero = _tests.firstWhere((hero) => hero['id'] == id, orElse: () => null);
-    if (hero == null) {
+    final test = _tests.firstWhere((test) => test['id'] == id, orElse: () => null);
+    if (test == null) {
       return Response.notFound();
     }
 
-    return Response.ok(hero);
+    return Response.ok(test);
   }
 
-//@Operation.post
+/*
+@Operation.post()
+Future<Response> createAllTests() async {
+
+}
+*/
 //@Operation.del
 }

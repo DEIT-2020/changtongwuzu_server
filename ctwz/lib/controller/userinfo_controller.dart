@@ -23,6 +23,16 @@ class UserinfosController extends ResourceController {
 
     return Response.ok(userinfo);
   }
-//@Operation.post
-//@Operation.put
+
+/*
+@Operation.put()
+Future<Response> updateAllUserinfos() async {
+
+}
+@Operation.post()
+Future<Response> createAllUserinfos() async {
+
+}
+*/
+
 }

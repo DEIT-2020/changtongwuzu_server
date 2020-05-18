@@ -16,7 +16,7 @@ class LearninginfoController extends ResourceController {
     return Response.ok(_cardsinfo);
   }
   @Operation.get()
-  Future<Response> getAllHeroes() async {
+  Future<Response> getAllUsers() async {
 
     return Response.ok(_cardsinfo);
   }
@@ -32,6 +32,10 @@ class LearninginfoController extends ResourceController {
     return Response.ok(hero);
   }
 
-//@Operation.put
+/*
+@Operation.put()
+Future<Response> updateAllKeens() async {
+
+}*/
 
 }

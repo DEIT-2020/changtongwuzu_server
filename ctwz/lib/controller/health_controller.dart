@@ -23,6 +23,14 @@ class HealthsController extends ResourceController {
 
     return Response.ok(health);
   }
-//@Operation.put
-//@Operation.post
+/*
+@Operation.put()
+Future<Response> updateAllHealths() async {
+
+}
+@Operation.post()
+Future<Response> createAllHealths() async {
+
+}
+*/
 }

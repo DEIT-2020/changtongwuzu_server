@@ -13,7 +13,7 @@ class FavorlistController extends ResourceController {
   }
   
   @Operation.get()
-  Future<Response> getAllHeroes() async {
+  Future<Response> getAllCards() async {
 
     return Response.ok(_favorlist);
   }
@@ -21,12 +21,16 @@ class FavorlistController extends ResourceController {
   @Operation.get('cardnum')
   Future<Response> getCardsByID(@Bind.path('cardnum') int cardnum) async {
     //final id = int.parse(request.path.variables['id']);
-    final hero = _favorlist.firstWhere((hero) => hero['cardnum'] == cardnum, orElse: () => null);
-    if (hero == null) {
+    final card = _favorlist.firstWhere((card) => card['cardnum'] == cardnum, orElse: () => null);
+    if (card == null) {
       return Response.notFound();
     }
 
-    return Response.ok(hero);
+    return Response.ok(card);
   }
-//@Operation.put
+  /*@Operation.put()
+  Future<Response> updateAllCards() async {
+
+    
+  }*/
 }
