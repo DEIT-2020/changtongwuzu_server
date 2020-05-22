@@ -3,7 +3,7 @@ import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 
 
-class TestinfoController extends ResourceController {
+class UserStinfoController extends ResourceController {
   final _tests= [
     {'id': 11, 'name': 'Mr. Nice'},
     {'id': 12, 'name': 'Narco'},

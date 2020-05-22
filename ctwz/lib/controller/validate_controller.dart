@@ -3,7 +3,7 @@ import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 
 
-class LearninginfoController extends ResourceController {
+class ValidateController extends ResourceController {
   final _cardsinfo= [
     {'cardnum': 11, 'status': 'learned'},
     {'cardnum': 12, 'status': 'mastered'},

@@ -3,7 +3,7 @@ import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 
 
-class TestgeneraterController extends ResourceController {
+class TestgeneratorController extends ResourceController {
   final _testgenerater= [{'cardnum':20198,'sort':'testgeneratecontroller',} ];
 
 

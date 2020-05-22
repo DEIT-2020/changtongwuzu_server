@@ -3,7 +3,7 @@ import 'package:ctwz/ctwz.dart';
 
 
 
-class UserinfosController extends ResourceController {
+class UserDyinfoController extends ResourceController {
   final _userinfos = [
     {'id': 11, '身高': '体重'},
   ];
