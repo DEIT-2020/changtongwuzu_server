@@ -1,6 +1,5 @@
 import 'ctwz.dart';
 import 'controller/ctwz_controller.dart';
-import 'controller/user_controller.dart';
 import 'controller/learn_controller.dart';
 import 'controller/login_controller.dart';
 import 'controller/register_controller.dart';
@@ -67,13 +66,13 @@ class CtwzChannel extends ApplicationChannel {
     router
     .route('/home/learninginfo/[:id]')
     .link(() => ValidateController())
-    .link(() => UserDyinfoController());
+    .link(() => UserDyinfoController(context));
 
      //收藏夹
     router
     .route('/home/favorlist/[:id]')
     .link(() => ValidateController())
-    .link(() => UserDyinfoController());
+    .link(() => UserDyinfoController(context));
 
    
     //学习专区
