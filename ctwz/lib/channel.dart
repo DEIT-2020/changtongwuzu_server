@@ -1,6 +1,5 @@
 import 'ctwz.dart';
 import 'controller/ctwz_controller.dart';
-import 'controller/user_controller.dart';
 import 'controller/learn_controller.dart';
 import 'controller/login_controller.dart';
 import 'controller/register_controller.dart';
@@ -50,6 +49,7 @@ class CtwzChannel extends ApplicationChannel {
   /// of all [Request]s.
   ///
   /// This method is invoked after [prepare].
+
   @override
   Controller get entryPoint {
     final router = Router();
@@ -92,20 +92,20 @@ class CtwzChannel extends ApplicationChannel {
     router
     .route('/home/learninginfo/[:id]')
     .link(() => ValidateController())
-    .link(() => UserDyinfoController());
+    .link(() => UserDyinfoController(context));
 
      //收藏夹
     router
     .route('/home/favorlist/[:id]')
     .link(() => ValidateController())
-    .link(() => UserDyinfoController());
+    .link(() => UserDyinfoController(context));
 
    
     //学习专区
     router
     .route('/learn/[:id]')
     .link(() => ValidateController())
-    .link(() => LearnController());
+    .link(() => LearnController(context));
 
     //测试区
     router
@@ -127,8 +127,13 @@ class CtwzChannel extends ApplicationChannel {
   }
 }
 
+<<<<<<< HEAD
 class HeroConfig extends Configuration {
   HeroConfig(String path): super.fromFile(File(path));
+=======
+class CtwzConfig extends Configuration {
+  CtwzConfig(String path): super.fromFile(File(path));
+>>>>>>> 229081937b45e3ae6a0e75b6458d32613bb752cb
 
   DatabaseConfiguration database;
 }

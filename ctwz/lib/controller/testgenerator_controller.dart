@@ -30,4 +30,5 @@ class TestgeneratorController extends ResourceController {
     return Response.ok(hero);
   }
 
+
 }
