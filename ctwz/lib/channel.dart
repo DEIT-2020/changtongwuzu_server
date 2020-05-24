@@ -42,6 +42,7 @@ class CtwzChannel extends ApplicationChannel {
   /// of all [Request]s.
   ///
   /// This method is invoked after [prepare].
+
   @override
   Controller get entryPoint {
     final router = Router();
@@ -79,7 +80,7 @@ class CtwzChannel extends ApplicationChannel {
     router
     .route('/learn/[:id]')
     .link(() => ValidateController())
-    .link(() => LearnController());
+    .link(() => LearnController(context));
 
     //测试区
     router
@@ -99,4 +100,10 @@ class CtwzChannel extends ApplicationChannel {
 
     return router;
   }
+}
+
+class CtwzConfig extends Configuration {
+  CtwzConfig(String path): super.fromFile(File(path));
+
+  DatabaseConfiguration database;
 }
