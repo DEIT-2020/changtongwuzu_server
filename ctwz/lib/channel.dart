@@ -6,17 +6,18 @@ import 'controller/register_controller.dart';
 import 'controller/userdyinfo_controller.dart';
 import 'controller/userstinfo_controller.dart';
 import 'controller/validate_controller.dart';
+import 'controller/hero_controller.dart';
 import 'controller/testgenerator_controller.dart';
+import 'package:ctwz/model/user.dart';
 //import 'controller/changtongwuzu_controller.dart';
-
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
 /// database connections. See http://aqueduct.io/docs/http/channel/.
 class CtwzChannel extends ApplicationChannel {
 
+  AuthServer authServer;
   ManagedContext context;
-
   /// Initialize services in this method.
   ///
   /// Implement this method to initialize services, read values from [options]
@@ -25,16 +26,23 @@ class CtwzChannel extends ApplicationChannel {
   /// This method is invoked prior to [entryPoint] being accessed.
   @override
   Future prepare() async {
-    logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+    logger.onRecord.listen(
+        (rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
 
+    final config = HeroConfig(options.configurationFilePath);
     final dataModel = ManagedDataModel.fromCurrentMirrorSystem();
-        final persistentStore = PostgreSQLPersistentStore.fromConnectionInfo(
-      "heroes_user", "password", "localhost", 5432, "heroes");
+    final persistentStore = PostgreSQLPersistentStore.fromConnectionInfo(
+      config.database.username,
+      config.database.password,
+      config.database.host,
+      config.database.port,
+      config.database.databaseName);
 
-      context = ManagedContext(dataModel, persistentStore);
-  }
+    context = ManagedContext(dataModel, persistentStore);
+}
   
-
+  
+ 
   /// Construct the request channel.
   ///
   /// Return an instance of some [Controller] that will be the initial receiver
@@ -50,15 +58,33 @@ class CtwzChannel extends ApplicationChannel {
     // See: https://aqueduct.io/docs/http/request_controller/
     
     router
-    .route('/registers/[:id]')//注册
-    .link(() => RegistersController());//注册信息（生成用户编号、账号密码传递给数据库）
+    .route('/auth/token')
+    .link(() => AuthController(authServer));
+
+    router
+    .route('/heroes/[:id]')
+    .link(() => HeroesController(context));
+
+    router
+    .route('/register')
+    .link(() => RegisterController(context, authServer));
+  
+
+    router
+    .route('/heroes/[:id]')
+    .link(() => HeroesController(context));
+  
+    
+    router
+    .route('/register')//注册
+    .link(() => RegisterController(context, authServer));//注册信息（生成用户编号、账号密码传递给数据库）
 
     router
    .route('/member/[:id]')//登录
    .link(() => LoginsController());//登录信息（登录后data传给usercontroller）+用户编号
 
    router
-   .route('/user/[:id]')//用户个人静态信息
+   .route('/users/[:id]')//用户个人静态信息
    .link(() => ValidateController())
    .link(() => UserStinfoController());//账户信息
     
@@ -101,8 +127,13 @@ class CtwzChannel extends ApplicationChannel {
   }
 }
 
+<<<<<<< HEAD
+class HeroConfig extends Configuration {
+  HeroConfig(String path): super.fromFile(File(path));
+=======
 class CtwzConfig extends Configuration {
   CtwzConfig(String path): super.fromFile(File(path));
+>>>>>>> 229081937b45e3ae6a0e75b6458d32613bb752cb
 
   DatabaseConfiguration database;
 }

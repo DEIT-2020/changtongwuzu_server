@@ -1,34 +1,26 @@
+import 'dart:async';
 import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
+import 'package:ctwz/model/user.dart';
 
-class RegistersController extends ResourceController {
-  final _registers = [
-    {'id': 11, '你好': '注册成功'},
-    
-  ];
+class RegisterController extends ResourceController {
+  RegisterController(this.context, this.authServer);
 
-  @Operation.get()
-  Future<Response> getAllregisters() async {
-    return Response.ok(_registers);
-  }
+  final ManagedContext context;
+  final AuthServer authServer;
 
-  @Operation.get('id')
-  Future<Response> getRegisterByID() async {
-    final id = int.parse(request.path.variables['id']);
-    final register = _registers.firstWhere((register) => register['id'] == id, orElse: () => null);
-    if (register == null) {
-      return Response.notFound();
+  @Operation.post()
+  Future<Response> createUser(@Bind.body() User user) async {
+    // Check for required parameters before we spend time hashing
+    if (user.username == null || user.password == null) {
+      return Response.badRequest(
+        body: {"error": "username and password required."});
     }
 
-    return Response.ok(_registers);
+    user
+      ..salt = AuthUtility.generateRandomSalt()
+      ..hashedPassword = authServer.hashPassword(user.password, user.salt);
+
+    return Response.ok(await Query(context, values: user).insert());
   }
-
-/*
-
-@Operation.post()
-Future<Response> createAllRegisters() async {
-
-}
-*/
-
 }
