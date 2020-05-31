@@ -10,33 +10,46 @@ class LearnController extends ResourceController {
   final ManagedContext context;
 
 
-  @override
-  Future<RequestOrResponse> handle(Request request) async {
+  @Operation.get()
+  Future<Response> getUsercards() async {
   final heroQuery = Query<Card>(context);
   final cards = await heroQuery.fetch();
 
     return Response.ok(cards);
   }
 
-  @Operation.get()
-  Future<Response> getAllcards({@Bind.query('title') String title}) async {
-    final heroQuery = Query<Card>(context);
-    if (title != null) {
-      heroQuery.where((h) => h.title).contains(title, caseSensitive: false);
+  @Operation.get('num')
+  Future<Response> getAllcards({@Bind.query('num') int num}) async {
+    final cardQuery = Query<Card>(context)
+    ..where((h) => h.cardnum).equalTo(num);
+    if (num != null) {
+      return Response.notFound();
     }
-    final cards = await heroQuery.fetch();
+    final cards = await cardQuery.fetch();
 
     return Response.ok(cards);
   }
   
- @Operation.get('id')
-Future<Response> getScoreByID(@Bind.path('id') int id) async {
-  final heroQuery = Query<Score>(context)
+@Operation.get()//用户综合分数
+  Future<Response> getUserscores() async {
+    final scoreQuery = Query<Score>(context);
+    final score = await scoreQuery.fetch();
+    return Response.ok(score);
+  }
+
+  @Operation.get('id')//用户综合分数
+  Future<Response> getUserscoresByID(@Bind.path('id') int id) async {
+    //final id = int.parse(request.path.variables['id']);
+   // final userinfo = Score.firstWhere((score) => score['id'] == id, orElse: () => null);
+    final scoreQuery = Query<Score>(context)
     ..where((h) => h.userid).equalTo(id);    
 
-  final score = await heroQuery.fetchOne();
+  final score = await scoreQuery.fetchOne();
+    if (Score == null) {
+      return Response.notFound();
+    }
 
-  return Response.ok(score);
-}
+    return Response.ok(score);
+  }
 }
 

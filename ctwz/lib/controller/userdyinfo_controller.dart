@@ -4,6 +4,7 @@ import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 import 'package:ctwz/model/score.dart';
 import 'package:ctwz/model/status.dart';
+import 'package:ctwz/model/test.dart';
 
 
 class UserDyinfoController extends ResourceController {
@@ -24,11 +25,11 @@ class UserDyinfoController extends ResourceController {
   }
 
   @Operation.get('id')//用户综合分数
-  Future<Response> getUserscoresByID(@Bind.path('id') int id) async {
+  Future<Response> getUserscoresByID(@Bind.path('id') int userid) async {
     //final id = int.parse(request.path.variables['id']);
    // final userinfo = Score.firstWhere((score) => score['id'] == id, orElse: () => null);
     final scoreQuery = Query<Score>(context)
-    ..where((h) => h.userid).equalTo(id);    
+    ..where((h) => h.userid).equalTo(userid);    
 
   final score = await scoreQuery.fetchOne();
     if (Score == null) {
@@ -45,9 +46,9 @@ class UserDyinfoController extends ResourceController {
     return Response.ok(status);
   }
 @Operation.get('id')//用户卡片掌握状态
-  Future<Response> getUsercardstatusByID(@Bind.path('id') int id) async {
+  Future<Response> getUsercardstatusByID(@Bind.path('id') int cardid) async {
     final statusQuery = Query<Status>(context)
-    ..where((h) => h.cardid).equalTo(id);    
+    ..where((h) => h.cardid).equalTo(cardid);    
 
   final status = await statusQuery.fetchOne();
     if (Status == null) {
@@ -59,18 +60,33 @@ class UserDyinfoController extends ResourceController {
 
 
 
-/*
-@Operation.put()//各专题综合分数和卡片掌握状态
-Future<Response> updateAllUserDyinfos(@Bind.path('id') int id) async {
-    final query = Query<UserDyinfo>(context)
-      ..values.content = UserDyinfo.content
-      ..where((a)=>a.id).equalTo(value)
+
+@Operation.put('id')//各专题综合分数
+Future<Response> updateAllUserScores(@Bind.path('id') int userid, @Bind.body() Score score) async {
+    var scorequery = Query<Score>(context)
+      ..where((a)=>a.userid).equalTo(userid)
+      ..values = score;
+  return Response.ok(await scorequery.updateOne());
 }
+
+
+@Operation.put('id')//各专题卡片掌握状态
+Future<Response> updateAllUserStatus(@Bind.path('id') int cardid, @Bind.body() Status status) async {
+    var statusquery = Query<Status>(context)
+      ..where((a)=>a.cardid).equalTo(cardid)
+      ..values = status;
+  return Response.ok(await statusquery.updateOne());
+}
+
+
 
 @Operation.post()//考试情况
-Future<Response> createAllUserinfos() async {
+Future<Response> addTest(@Bind.body() Test test) async {
+    final insertedTest = await context.insertObject(test);
+
+    return Response.ok(insertedTest);
+}
+
 
 }
-*/
 
-}

@@ -2,7 +2,20 @@ import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 
 
-class ValidateController extends ResourceController {
+
+class ValidateController extends Controller {
+
+  @override
+  Future<RequestOrResponse> handle(Request request) async {
+    final headers = request.raw.headers;
+    final a = headers.value('a');
+    if(a == 'a'){
+      return request;
+    }
+    return Response.unauthorized();
+  }
+
+/*
   final _cardsinfo= [
     {'cardnum': 11, 'status': 'learned'},
     {'cardnum': 12, 'status': 'mastered'},
@@ -15,9 +28,10 @@ class ValidateController extends ResourceController {
     return Response.ok(_cardsinfo);
   }
   @Operation.get()
-  Future<Response> getAllUsers() async {
-
-    return Response.ok(_cardsinfo);
+  Future<Response> getAllcardinfo() async {
+    final cardinfoQuery = Query<Cardinfo>(context);
+    final cardinfo = await cardinfoQuery.fetch();
+    return Response.ok(cardinfo);
   }
 
   @Operation.get('id')
@@ -31,7 +45,7 @@ class ValidateController extends ResourceController {
     return Response.ok(hero);
   }
 
-/*
+
 @Operation.put()
 Future<Response> updateAllKeens() async {
 
