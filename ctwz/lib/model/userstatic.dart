@@ -6,6 +6,15 @@ class _UserStatic {
   int id;//用户id
 
   @Column(unique: true)
-  String gender ;//卡片类型（知识/注意点/应对方法）
+  String gender ;//性别
+
+  @Column(unique:true)
+  int height;//身高
+
+  @Column(unique:true)
+  int weight;//体重
+
+  @Column(unique:true)
+  String preference;//兴趣偏好
 
 }
