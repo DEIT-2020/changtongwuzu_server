@@ -5,7 +5,7 @@ class _Card {
   @primaryKey
   int cardnum;//卡片编号
 
-  @Column(unique: true)
+  @Column()
   String type;//卡片类型（知识/注意点/应对方法）
 
   @Column(indexed: true)

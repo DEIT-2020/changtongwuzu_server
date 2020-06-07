@@ -38,7 +38,7 @@ class UserDyinfoController extends ResourceController {
 
     return Response.ok(score);
   }
-
+/*
   @Operation.get()//用户卡片掌握状态
   Future<Response> getUsercardstatus() async {
     final statusQuery = Query<Status>(context);
@@ -87,6 +87,6 @@ Future<Response> addTest(@Bind.body() Test test) async {
     return Response.ok(insertedTest);
 }
 
-
+*/
 }
 

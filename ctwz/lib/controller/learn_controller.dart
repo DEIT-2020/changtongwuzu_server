@@ -8,8 +8,7 @@ import 'package:ctwz/model/score.dart';
 class LearnController extends ResourceController {
   LearnController(this.context);
   final ManagedContext context;
-
-
+     
   @Operation.get()
   Future<Response> getUsercards() async {
   final heroQuery = Query<Card>(context);
@@ -18,19 +17,19 @@ class LearnController extends ResourceController {
     return Response.ok(cards);
   }
 
-  @Operation.get('num')
-  Future<Response> getAllcards({@Bind.query('num') int num}) async {
+  @Operation.get('cardnum')
+  Future<Response> getUsercardsByNum({@Bind.query('cardnum') int cardnum}) async {
     final cardQuery = Query<Card>(context)
-    ..where((h) => h.cardnum).equalTo(num);
-    if (num != null) {
-      return Response.notFound();
-    }
-    final cards = await cardQuery.fetch();
-
+    ..where((h) => h.cardnum).equalTo(cardnum);
+   final cards = await cardQuery.fetch();
+   
+    if (cardnum != null) {
+          return Response.notFound();
+        }
     return Response.ok(cards);
   }
   
-@Operation.get()//用户综合分数
+/*@Operation.get()//用户综合分数
   Future<Response> getUserscores() async {
     final scoreQuery = Query<Score>(context);
     final score = await scoreQuery.fetch();
@@ -50,6 +49,6 @@ class LearnController extends ResourceController {
     }
 
     return Response.ok(score);
-  }
+  }*/
 }
 

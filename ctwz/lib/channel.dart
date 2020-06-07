@@ -29,7 +29,7 @@ class CtwzChannel extends ApplicationChannel {
     logger.onRecord.listen(
         (rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
 
-    final config = HeroConfig(options.configurationFilePath);
+    final config = CtwzConfig(options.configurationFilePath);
     final dataModel = ManagedDataModel.fromCurrentMirrorSystem();
     final persistentStore = PostgreSQLPersistentStore.fromConnectionInfo(
       config.database.username,
@@ -64,16 +64,6 @@ class CtwzChannel extends ApplicationChannel {
     router
     .route('/heroes/[:id]')
     .link(() => HeroesController(context));
-
-    router
-    .route('/register')
-    .link(() => RegisterController(context, authServer));
-  
-
-    router
-    .route('/heroes/[:id]')
-    .link(() => HeroesController(context));
-  
     
     router
     .route('/register')//注册
@@ -91,7 +81,7 @@ class CtwzChannel extends ApplicationChannel {
     //学习中心:
     router
     .route('/home/learninginfo/[:id]')
-    .link(() => ValidateController())
+   // .link(() => ValidateController())
     .link(() => UserDyinfoController(context));
 
      //收藏夹
@@ -103,8 +93,8 @@ class CtwzChannel extends ApplicationChannel {
    
     //学习专区
     router
-    .route('/learn/[:id]')
-    .link(() => ValidateController())
+    .route('/learn/[:cardnum]')
+    //.link(() => ValidateController())
     .link(() => LearnController(context));
 
     //测试区
@@ -127,13 +117,8 @@ class CtwzChannel extends ApplicationChannel {
   }
 }
 
-<<<<<<< HEAD
-class HeroConfig extends Configuration {
-  HeroConfig(String path): super.fromFile(File(path));
-=======
 class CtwzConfig extends Configuration {
   CtwzConfig(String path): super.fromFile(File(path));
->>>>>>> 229081937b45e3ae6a0e75b6458d32613bb752cb
 
   DatabaseConfiguration database;
 }
