@@ -22,19 +22,19 @@ class LearnController extends ResourceController {
     final cardQuery = Query<Card>(context)
     ..where((h) => h.cardnum).equalTo(cardnum);
    final cards = await cardQuery.fetch();
-   
+
     if (cardnum != null) {
           return Response.notFound();
         }
     return Response.ok(cards);
   }
   
-/*@Operation.get()//用户综合分数
+ /*@Operation.get()//用户综合分数
   Future<Response> getUserscores() async {
     final scoreQuery = Query<Score>(context);
     final score = await scoreQuery.fetch();
     return Response.ok(score);
-  }
+  }*/
 
   @Operation.get('id')//用户综合分数
   Future<Response> getUserscoresByID(@Bind.path('id') int id) async {
@@ -49,6 +49,6 @@ class LearnController extends ResourceController {
     }
 
     return Response.ok(score);
-  }*/
+  }
 }
 

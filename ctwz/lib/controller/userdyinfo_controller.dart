@@ -30,7 +30,7 @@ class UserDyinfoController extends ResourceController {
    // final userinfo = Score.firstWhere((score) => score['id'] == id, orElse: () => null);
     final scoreQuery = Query<Score>(context)
     ..where((h) => h.userid).equalTo(userid);    
-
+  
   final score = await scoreQuery.fetchOne();
     if (Score == null) {
       return Response.notFound();
@@ -45,8 +45,9 @@ class UserDyinfoController extends ResourceController {
     final status = await statusQuery.fetch();
     return Response.ok(status);
   }
-@Operation.get('id')//用户卡片掌握状态
-  Future<Response> getUsercardstatusByID(@Bind.path('id') int cardid) async {
+  */
+@Operation.get('cardid')//用户卡片掌握状态
+  Future<Response> getUsercardstatusByID(@Bind.path('cardid') int cardid) async {
     final statusQuery = Query<Status>(context)
     ..where((h) => h.cardid).equalTo(cardid);    
 
@@ -59,20 +60,18 @@ class UserDyinfoController extends ResourceController {
   }
 
 
-
-
-@Operation.put('id')//各专题综合分数
-Future<Response> updateAllUserScores(@Bind.path('id') int userid, @Bind.body() Score score) async {
-    var scorequery = Query<Score>(context)
+@Operation.put('userid')//各专题综合分数
+Future<Response> updateAllUserScores(@Bind.path('userid') int userid, @Bind.body() Score score) async {
+    final scorequery = Query<Score>(context)
       ..where((a)=>a.userid).equalTo(userid)
       ..values = score;
   return Response.ok(await scorequery.updateOne());
 }
 
 
-@Operation.put('id')//各专题卡片掌握状态
-Future<Response> updateAllUserStatus(@Bind.path('id') int cardid, @Bind.body() Status status) async {
-    var statusquery = Query<Status>(context)
+@Operation.put('cardid')//各专题卡片掌握状态
+Future<Response> updateAllUserStatus(@Bind.path('cardid') int cardid, @Bind.body() Status status) async {
+    final statusquery = Query<Status>(context)
       ..where((a)=>a.cardid).equalTo(cardid)
       ..values = status;
   return Response.ok(await statusquery.updateOne());
@@ -87,6 +86,5 @@ Future<Response> addTest(@Bind.body() Test test) async {
     return Response.ok(insertedTest);
 }
 
-*/
 }
 
