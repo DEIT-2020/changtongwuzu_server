@@ -1,9 +1,9 @@
 import 'package:ctwz/ctwz.dart';
 
-class Test extends ManagedObject<_test> implements _test  {}
+class Test extends ManagedObject<_Test> implements _Test  {}
 
 
-class _test  {
+class _Test  {
 @primaryKey
   int userid;//用户ID
 
@@ -16,6 +16,6 @@ class _test  {
   @Column(unique: true)
   String testresult;//考试结果
 
-  @Column(unique: true)
+  @Column(nullable: true)
   String testscore;//考试成绩
 }

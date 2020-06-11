@@ -24,8 +24,8 @@ class UserDyinfoController extends ResourceController {
     return Response.ok(score);
   }
 
-  @Operation.get('id')//用户综合分数
-  Future<Response> getUserscoresByID(@Bind.path('id') int userid) async {
+  @Operation.get('userid')//用户综合分数
+  Future<Response> getUserscoresByID(@Bind.path('userid') int userid) async {
     //final id = int.parse(request.path.variables['id']);
    // final userinfo = Score.firstWhere((score) => score['id'] == id, orElse: () => null);
     final scoreQuery = Query<Score>(context)
@@ -38,18 +38,18 @@ class UserDyinfoController extends ResourceController {
 
     return Response.ok(score);
   }
-/*
-  @Operation.get()//用户卡片掌握状态
+
+  /*@Operation.get()//用户卡片掌握状态
   Future<Response> getUsercardstatus() async {
     final statusQuery = Query<Status>(context);
     final status = await statusQuery.fetch();
     return Response.ok(status);
-  }
-  */
-@Operation.get('cardid')//用户卡片掌握状态
-  Future<Response> getUsercardstatusByID(@Bind.path('cardid') int cardid) async {
+  }*/
+  
+@Operation.get('userid')//用户卡片掌握状态
+  Future<Response> getUsercardstatusByID(@Bind.path('userid') int userid) async {
     final statusQuery = Query<Status>(context)
-    ..where((h) => h.cardid).equalTo(cardid);    
+    ..where((h) => h.userid).equalTo(userid);    
 
   final status = await statusQuery.fetchOne();
     if (Status == null) {
@@ -69,10 +69,10 @@ Future<Response> updateAllUserScores(@Bind.path('userid') int userid, @Bind.body
 }
 
 
-@Operation.put('cardid')//各专题卡片掌握状态
-Future<Response> updateAllUserStatus(@Bind.path('cardid') int cardid, @Bind.body() Status status) async {
+@Operation.put('userid')//各专题卡片掌握状态
+Future<Response> updateAllUserStatus(@Bind.path('userid') int userid, @Bind.body() Status status) async {
     final statusquery = Query<Status>(context)
-      ..where((a)=>a.cardid).equalTo(cardid)
+      ..where((a)=>a.userid).equalTo(userid)
       ..values = status;
   return Response.ok(await statusquery.updateOne());
 }

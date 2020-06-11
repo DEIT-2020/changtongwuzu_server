@@ -1,15 +1,21 @@
 import 'package:ctwz/ctwz.dart';
 
-class Status extends ManagedObject<_status> implements _status  {}
+class Status extends ManagedObject<_Status> implements _Status  {}
 
 
-class _status  {
+class _Status  {
 @primaryKey
-  int cardid;//卡片编码
+  int countnumber;//记录编号
 
-  @Column(unique: true)
+  @Column(nullable: true,indexed: true)
+  int userid;//用户id
+
+  @Column(nullable: true,indexed: true)
+  String cardnum;//卡片编号
+
+  @Column(nullable: true)
   String learnstatus;//学习状态(unlearned learned mastered)
 
-  @Column(unique: true)
+  @Column(nullable: true)
   String favorstatus;//收藏状态(y/n)
 }

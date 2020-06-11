@@ -1,48 +1,51 @@
 import 'package:ctwz/ctwz.dart';
 
 //<<<<<<< HEAD
-class Score extends ManagedObject<_score> implements _score {}
+class Score extends ManagedObject<_Score> implements _Score {}
 
 
-class _score {
+class _Score {
 @primaryKey
 int userid;
 
-@Column(unique: true)
-String score1fixed;
+@Column(nullable: true)
+String whitesfixed;
 
-@Column(unique: true)
-String score1var;
+@Column(nullable: true)
+String whitesvar;
 
-@Column(unique: true)
-String score2fixed;
+@Column(nullable: true)
+String periodfixed;
 
-@Column(unique: true)
-String score2var;
+@Column(nullable: true)
+String periodvar;
 
-@Column(unique: true)
-String score3fixed;
+@Column(nullable: true)
+String inflammationfixed;
 
-@Column(unique: true)
-String score3var;
+@Column(nullable: true)
+String inflammationvar;
 
-@Column(unique: true)
-String score4fixed;
+@Column(nullable: true)
+String diseasesfixed;
 
-@Column(unique: true)
-String score4var;
+@Column(nullable: true)
+String diseasesvar;
 
-@Column(unique: true)
-String score5fixed;
+@Column(nullable: true)
+String protectionfixed;
 
-@Column(unique: true)
-String score5var;
+@Column(nullable: true)
+String protectionvar;
 
-@Column(unique: true)
-String score6fixed;
+@Column(nullable: true)
+String othersfixed;
 
-@Column(unique: true)
-String score6var;
+@Column(nullable: true)
+String othersvar;
+
+@Column(nullable: true)
+String total;
 /*=======
 class Score extends ManagedObject<_score> implements _score  {}
 
