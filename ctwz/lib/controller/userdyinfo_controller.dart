@@ -24,6 +24,7 @@ class UserDyinfoController extends ResourceController {
     return Response.ok(score);
   }
 
+/*
   @Operation.get('userid')//用户综合分数
   Future<Response> getUserscoresByID(@Bind.path('userid') int userid) async {
     //final id = int.parse(request.path.variables['id']);
@@ -38,6 +39,7 @@ class UserDyinfoController extends ResourceController {
 
     return Response.ok(score);
   }
+
 
   /*@Operation.get()//用户卡片掌握状态
   Future<Response> getUsercardstatus() async {
@@ -85,6 +87,6 @@ Future<Response> addTest(@Bind.body() Test test) async {
 
     return Response.ok(insertedTest);
 }
-
+*/
 }
 

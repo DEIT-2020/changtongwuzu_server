@@ -8,6 +8,7 @@ import 'controller/userstinfo_controller.dart';
 import 'controller/validate_controller.dart';
 import 'controller/hero_controller.dart';
 import 'controller/testgenerator_controller.dart';
+import 'package:aqueduct/managed_auth.dart';
 import 'package:ctwz/model/user.dart';
 //import 'controller/changtongwuzu_controller.dart';
 /// This type initializes an application.
@@ -39,6 +40,9 @@ class CtwzChannel extends ApplicationChannel {
       config.database.databaseName);
 
     context = ManagedContext(dataModel, persistentStore);
+    
+  final authStorage = ManagedAuthDelegate<User>(context);
+  authServer = AuthServer(authStorage);
 }
   
   
@@ -103,6 +107,8 @@ class CtwzChannel extends ApplicationChannel {
     .link(() => ValidateController())
     .link(() => TestgeneratorController());
 
+   
+
    /* router
     .route('/changtongwuzu/[:id]')
     .link(() => changtongwuzuController(context));
@@ -112,6 +118,7 @@ class CtwzChannel extends ApplicationChannel {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
+
 
     return router;
   }
