@@ -44,7 +44,7 @@ String othersfixed;
 @Column(nullable: true)
 String othersvar;
 
-@Column(nullable: true)
+@Column(nullable: true,indexed: true)
 String total;
 /*=======
 class Score extends ManagedObject<_score> implements _score  {}

@@ -5,7 +5,7 @@ class Status extends ManagedObject<_Status> implements _Status  {}
 
 class _Status  {
 @primaryKey
-  int countnumber;//记录编号
+  DateTime countnumber;//记录编号
 
   @Column(nullable: true,indexed: true)
   int userid;//用户id
