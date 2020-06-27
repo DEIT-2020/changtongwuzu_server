@@ -108,15 +108,21 @@ class CtwzChannel extends ApplicationChannel {
     .link(() => ValidateController())
     .link(() => TestgeneratorController());
 <<<<<<< HEAD
+<<<<<<< HEAD
 
    
 
 =======
+=======
+>>>>>>> changqing
 /*
     router
     .route('/test')
     .link(() => TestquestionController(context));
 */
+<<<<<<< HEAD
+>>>>>>> changqing
+=======
 >>>>>>> changqing
    /* router
     .route('/changtongwuzu/[:id]')
