@@ -1,0 +1,16 @@
+<h1>个人中心</h1>
+
+<todo-list></todo-list>
+
+<h2>学习进度表</h2> 
+
+ 
+<p><i>选择一个类别查看学习进度</i></p> 
+ <ul> 
+  <li *ngFor="let type of types" (click)="selectType(type)"> 
+    {{type.name}} 
+  </li> 
+ </ul> 
+
+ 
+ <ytpe-detail *ngIf="selectedType != null" [type]="selectedType"></type-detail> 

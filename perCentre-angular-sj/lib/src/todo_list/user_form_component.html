@@ -1,0 +1,66 @@
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>用户注册</h1>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name&nbsp;*</label>
+          <input type="text" class="form-control" id="name" required
+                 [(ngModel)]="model.name"
+                 #name="ngForm"
+                 [class.is-valid]="name.valid"
+                 [class.is-invalid]="!name.valid"
+                 ngControl="name">
+          <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="alterPassword">Alter Password</label>
+          <input type="text" class="form-control" id="alterPassword"
+                 [(ngModel)]="model.alterPassword"
+                 ngControl="alterPassword">
+        </div>
+        <div class="form-group">
+          <label for="gender">User Gender&nbsp;*</label>
+          <select class="form-control" id="gender" required
+                  [(ngModel)]="model.gender"
+                  #gender="ngForm"
+                  [ngClass]="setCssValidityClass(gender)"
+                  ngControl="gender">
+            <option *ngFor="let p of genders" [value]="p">{{p}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+            <button (click)="clear()" type="button" class="btn">
+              Clear
+            </button>
+          </div>
+          <small class="col text-right">*&nbsp;Required</small>
+        </div>
+      </form>
+    </div>
+    <div [hidden]="!submitted">
+      <h1>User data</h1>
+  
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <td>{{model.name}}</td>
+        </tr>
+        <tr>
+          <th>Alter Gender</th>
+          <td>{{model.alterPassword}}</td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td>{{model.gender}}</td>
+        </tr>
+      </table>
+  
+      <button (click)="submitted=false" class="btn btn-primary">Edit</button>
+    </div>
+  </div>

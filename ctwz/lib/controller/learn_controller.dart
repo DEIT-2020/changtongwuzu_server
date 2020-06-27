@@ -1,4 +1,3 @@
-
 import 'package:aqueduct/aqueduct.dart';
 import 'package:ctwz/ctwz.dart';
 import 'package:ctwz/model/allpass.dart';
@@ -9,14 +8,29 @@ class LearnController extends ResourceController {
   LearnController(this.context);
   final ManagedContext context;
      
-  @Operation.get()
+  @Operation.get()//get所有卡片信息
   Future<Response> getUsercards() async {
-  final heroQuery = Query<Card>(context);
-  final cards = await heroQuery.fetch();
+  final cardsQuery = Query<Card>(context);
+  final cards = await cardsQuery.fetch();
 
     return Response.ok(cards);
   }
 
+/*@Operation.get('id')//用户综合分数
+  Future<Response> getUserscoresByID(@Bind.path('id') int userid) async {
+    //final id = int.parse(request.path.variables['id']);
+   // final userinfo = Score.firstWhere((score) => score['id'] == id, orElse: () => null);
+    final scoreQuery = Query<Score>(context)
+    ..where((h) => h.userid).equalTo(userid);    
+
+  final score = await scoreQuery.fetchOne();
+    if (Score == null) {
+      return Response.notFound();
+    }
+
+    return Response.ok(score);
+  }
+*/
   @Operation.get('cardnum')
   Future<Response> getUsercardsByNum({@Bind.query('cardnum') int cardnum}) async {
     final cardQuery = Query<Card>(context)
@@ -36,19 +50,6 @@ class LearnController extends ResourceController {
     return Response.ok(score);
   }*/
 
-  @Operation.get('id')//用户综合分数
-  Future<Response> getUserscoresByID(@Bind.path('id') int id) async {
-    //final id = int.parse(request.path.variables['id']);
-   // final userinfo = Score.firstWhere((score) => score['id'] == id, orElse: () => null);
-    final scoreQuery = Query<Score>(context)
-    ..where((h) => h.userid).equalTo(id);    
-
-  final score = await scoreQuery.fetchOne();
-    if (Score == null) {
-      return Response.notFound();
-    }
-
-    return Response.ok(score);
-  }
+  
 }
 
