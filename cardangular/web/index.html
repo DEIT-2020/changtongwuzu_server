@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    // WARNING: DO NOT set the <base href> like this in production!
+    // Details: https://webdev.dartlang.org/angular/guide/router
+    (function () {
+      var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/);
+      document.write('<base href="' + (m ? m[0] : '/') + '" />');
+    }());
+  </script>
+  <title>Loveyourself</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+  <button class="mdc-icon-button" aria-pressed="true" aria-label="Add to favorites" title="Add to favorites">
+    <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+    <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+  </button>
+  <my-app>Loading...</my-app>
+</body>
+
+</html>
