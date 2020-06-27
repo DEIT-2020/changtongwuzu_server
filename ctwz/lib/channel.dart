@@ -1,3 +1,4 @@
+//import 'controller/testquestion_controller.dart';
 import 'ctwz.dart';
 import 'controller/ctwz_controller.dart';
 import 'controller/learn_controller.dart';
@@ -106,9 +107,17 @@ class CtwzChannel extends ApplicationChannel {
     .route('/test/[:id]')
     .link(() => ValidateController())
     .link(() => TestgeneratorController());
+<<<<<<< HEAD
 
    
 
+=======
+/*
+    router
+    .route('/test')
+    .link(() => TestquestionController(context));
+*/
+>>>>>>> changqing
    /* router
     .route('/changtongwuzu/[:id]')
     .link(() => changtongwuzuController(context));

@@ -1,0 +1,31 @@
+<head></head>
+<body>
+<div>
+<center><h1 class="boxs">生理知识小测试</h1></center>
+<br />
+<img src="test-start.jpg" width="472" height="216"/>
+</div>
+
+<div>
+<ul class="tests"><br />
+    <li *ngFor="let test of tests">
+        <br /><span class="badge">{{test.id}}{{test.testquestion}}
+        </span>   
+
+        <p><rl>{{test.A}}</rl>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <rl>{{test.B}}</rl>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <rl>{{test.C}}</rl></p>
+        <label>yourkey:</label><input>{{test.key1}}
+    </li>
+    <br />
+
+</ul>
+
+</div>
+
+<div>
+<center><button ><center>Back</center></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button><center>Submit</center></button></center>
+</div>
+</body>

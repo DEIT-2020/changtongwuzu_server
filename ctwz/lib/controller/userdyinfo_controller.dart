@@ -46,7 +46,7 @@ class UserDyinfoController extends ResourceController {
     final statusQuery = Query<Status>(context);
     final status = await statusQuery.fetch();
     return Response.ok(status);
-  }*/
+  }
   
 @Operation.get('userid')//用户卡片掌握状态
   Future<Response> getUsercardstatusByID(@Bind.path('userid') int userid) async {
@@ -79,7 +79,7 @@ Future<Response> updateAllUserStatus(@Bind.path('userid') int userid, @Bind.body
   return Response.ok(await statusquery.updateOne());
 }
 
-
+*/
 
 @Operation.post()//考试情况
 Future<Response> addTest(@Bind.body() Test test) async {
@@ -88,5 +88,9 @@ Future<Response> addTest(@Bind.body() Test test) async {
     return Response.ok(insertedTest);
 }
 */
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> changqing
