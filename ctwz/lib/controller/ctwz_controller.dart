@@ -42,7 +42,6 @@ class CtwzController extends ResourceController {
 
     return Response.ok(ctwz);
   }
-
 @Operation.post()
 Future<Response> createCtwz() async {
   final ctwz = Ctwz()
