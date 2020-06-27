@@ -1,22 +1,12 @@
-import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart';
-import 'package:angular_router/angular_router.dart';
-import 'route_paths.dart';
-import 'routes.dart';
 
-@Component(
-  selector: 'test',
-  styleUrls: ['test_component.css'],
-  templateUrl: 'test_component.html',
-  directives: [coreDirectives,formDirectives,routerDirectives],
-  exports:[RoutePaths,Routes],
-)
+class Test {
+  final String id;
+  String testquestion;
+  String A;
+  String B;
+  String C;
+  String key;
+  String key1;
 
-class TestComponent implements OnInit {
-  @override
-  void ngOnInit() {
-    // TODO: implement ngOnInit
-  }
-
-  // Nothing here yet. All logic is in TodoListComponent.
+  Test(this.id, this.testquestion,this.A,this.B,this.C,this.key,this.key1);
 }
