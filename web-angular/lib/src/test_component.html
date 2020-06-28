@@ -3,10 +3,11 @@
 <div>
 <center><h1 class="boxs">生理知识小测试</h1></center>
 <br />
-<img src="test-start.jpg" width="472" height="216"/>
+<center><img src="test-start.jpg" width="472" height="216"/></center>
 </div>
 
 <div>
+
 <ul class="tests"><br />
     <li *ngFor="let test of tests">
         <br /><span class="badge">{{test.id}}{{test.testquestion}}
@@ -15,7 +16,7 @@
         <p><rl>{{test.A}}</rl>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <rl>{{test.B}}</rl>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <rl>{{test.C}}</rl></p>
-        <label>yourkey:</label><input>{{test.key1}}
+        <rl><label>yourkey:</label>&nbsp;&nbsp;y<input>{{test.key1}}</rl>
     </li>
     <br />
 

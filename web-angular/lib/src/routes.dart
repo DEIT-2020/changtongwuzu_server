@@ -4,6 +4,7 @@ import 'route_paths.dart';
 import 'test_component.template.dart' as test_template;
 import 'teststart_component.template.dart' as teststart_template;
 import 'score_component.template.dart' as score_template;
+import 'card_component.template.dart' as card_template;
 export 'route_paths.dart';
 
 class Routes {
@@ -19,14 +20,19 @@ class Routes {
     routePath: RoutePaths.score,
     component: score_template.ScoreComponentNgFactory,
 );
+  static final card = RouteDefinition(
+    routePath: RoutePaths.card,
+    component: card_template.CardComponentNgFactory,
+);
 
   static final all = <RouteDefinition>[
     tests,
     teststart,
     score,
+    card,
     RouteDefinition.redirect(
     path: '',
-    redirectTo: RoutePaths.teststart.toUrl(),
+    redirectTo: RoutePaths.card.toUrl(),
   ),
   ];
 }
