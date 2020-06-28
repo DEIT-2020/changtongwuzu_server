@@ -12,14 +12,6 @@ import 'scr/card/card_service.dart';
 )
 class AppComponent {
   var name = '张心怡';
-  final CardService _cardService;
-  List<Card> cards;
-  Card selected;
 
-  AppComponent(this._cardService);
-  Future<void> _getCards() async {
-  cards = await _cardService.getAll();
-}
-  void ngOnInit() => _getCards();
-   void onSelect(Card card) => selected = card;
+
 }

@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:html';
+import 'dart:io';
+import 'dart:math' show Random;
+
 import 'package:angular/angular.dart';
 import 'card.dart';
 
