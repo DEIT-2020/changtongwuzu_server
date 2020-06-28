@@ -10,18 +10,23 @@
 
 <ul class="tests"><br />
     <li *ngFor="let test of tests">
-        <br /><span class="badge">{{test.id}}{{test.testquestion}}
+        <br /><span class="badge">{{test.id}}&nbsp;&nbsp;{{test.testquestion}}
         </span>   
 
-        <p><rl>{{test.A}}</rl>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <rl>{{test.B}}</rl>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <rl>{{test.C}}</rl></p>
-        <rl><label>yourkey:</label>&nbsp;&nbsp;<input>{{test.key1}}</rl>
+        <p><rl>{{test.A}}</rl></p>
+        <p><rl>{{test.B}}</rl></p>
+        <p><rl>{{test.C}}</rl></p>
+ 
+        <rl><label>yourkey:&nbsp;</label>
+          <input>{{test.key1}}</rl>
     </li>
     <br />
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </ul>
+<div>
 
+    <center><button><center>Submit</center></button></center>
+    </div>
 </div>
 
 

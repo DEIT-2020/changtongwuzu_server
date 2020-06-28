@@ -26,26 +26,6 @@ import 'todo_list_component.dart';
   
 )
 
-/*@Component(
-  selector: 'my-app',
-  template: '<user-form></user-form>',
-  directives: [UserFormComponent],
-)*/
-
-/*@Component( 
-  selector: 'my-app', 
-  template: ''' 
-    <type-list></type-list> 
-    <sales-tax></sales-tax> 
-    <user-form></user-form>
-  ''', 
-  directives: [TypeListComponent, SalesTaxComponent,UserFormComponent], 
-  providers: [ 
-    ClassProvider(BackendService), 
-    ClassProvider(TypeService), 
-    ClassProvider(Logger), 
-  ], 
-) */
 
 class UserComponent {
   

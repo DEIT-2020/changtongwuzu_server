@@ -1,4 +1,5 @@
 import 'package:angular/angular.dart';
+//import 'package:angular_forms/angular_forms.dart';
 import 'package:web_angular/src/test.dart';
 import 'package:web_angular/src/test_service.dart';
 //import 'package:web_angular/src/testkey_component.dart';
@@ -14,7 +15,7 @@ import 'package:web_angular/src/test_service.dart';
   selector: 'my-test',
   styleUrls: ['test_component.css'],
   templateUrl: 'test_component.html',
-  directives:[coreDirectives/*, ScoreComponent,TestKeyComponent*/],
+  directives:[coreDirectives/*,formDirectives, ScoreComponent,TestKeyComponent*/],
   providers: [ClassProvider(TestService)/*,ClassProvider(ScoreService)*/],
 )
 
@@ -31,9 +32,19 @@ class TestComponent implements OnInit {
       tests = await _testService.getAll();
     }
     void ngOnInit()=>_getTests();
+/*
+
+    Test model = Test('', '', '','','','','key1');
+  bool submitted = false;
+ 
+ 
+  void onSubmit() => submitted = true;
 
 
 
+Map<String, bool> setCssValidityClass(NgControl control) {
+    final validityClass = control.valid == true ? 'is-valid' : 'is-invalid';
+    return {validityClass: true};*/
     // Score selected;
      //void onSelect(Score score) => selected = score;
 
@@ -43,3 +54,18 @@ class TestComponent implements OnInit {
   //final title = 'Love yourself';
   // Nothing here yet. All logic is in TodoListComponent.
 }
+
+/*
+  void clear() {
+    model.key1 = '';
+
+  }
+}*/
+
+/*
+Test key1() {
+  var myTest =
+      Test('','','','','','','A');
+  print('My key is ${myTest.key1}.'); // "My hero is SkyDog."
+  return myTest;
+}*/
