@@ -5,6 +5,7 @@ import 'test_component.template.dart' as test_template;
 import 'teststart_component.template.dart' as teststart_template;
 import 'score_component.template.dart' as score_template;
 import 'card_component.template.dart' as card_template;
+import 'user_component.template.dart' as user_template;
 export 'route_paths.dart';
 
 class Routes {
@@ -24,15 +25,20 @@ class Routes {
     routePath: RoutePaths.card,
     component: card_template.CardComponentNgFactory,
 );
+  static final user = RouteDefinition(
+    routePath: RoutePaths.user,
+    component: user_template.UserComponentNgFactory,
+);
 
   static final all = <RouteDefinition>[
     tests,
     teststart,
     score,
     card,
+    user,
     RouteDefinition.redirect(
     path: '',
-    redirectTo: RoutePaths.card.toUrl(),
+    redirectTo: RoutePaths.user.toUrl(),
   ),
   ];
 }
