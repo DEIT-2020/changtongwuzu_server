@@ -11,8 +11,13 @@ class LearnController extends ResourceController {
   @Operation.get()//get所有卡片信息
   Future<Response> getUsercards() async {
   final cardsQuery = Query<Card>(context);
-  final cards = await cardsQuery.fetch();
-
+  final List<Card>cards = await cardsQuery.fetch();
+  /*final cd=List<dynamic>(10);
+    for(var i=0;i<10;i++){
+      if(cards.length==0)break;
+      var random=Random();
+      var ran =random.nextInt(cards.length);
+    }*/
     return Response.ok(cards);
   }
 

@@ -6,4 +6,9 @@ class Card{
    String area;//卡片分区
 
    Card(this.cardnum,this.type,this.title,this.knowledge);
+     /* factory Card.fromJson(Map<String, dynamic> card) =>
+      Card(_toInt(card['cardnum']), card['type'],card['title'],card['knowledge']);
+
+  Map toJson() => {'cardnnum': cardnum, 'type': type,'title':title,'knowledge':knowledge};*/
 }
+//int _toInt(cardnum) => cardnum is int ? cardnum: int.parse(cardnum);

@@ -35,24 +35,24 @@ label {
   box-sizing: border-box; 
 }
 .back,.front { 
-width: 300px;
+width: 320px;
 height:200px;
 }
 .type{
-  width: 300px;
+  width: 320px;
   height: 20px;
 }
 .upper{ 
-width: 300px;
+width: 320px;
 height:160px;
 background-color: grey;
 }
 .lower{
-width: 300px;
+width: 320px;
 height: 20px;
 }
 .cardcontainer{ 
-  width: 300px;
+  width: 320px;
   height:200px;
   position: relative; 
   transition: 1s; 

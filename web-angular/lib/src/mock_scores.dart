@@ -1,5 +1,5 @@
 import 'score.dart';
 
 final mockScores = <Score>[
-  Score(100)
+  Score(80)
 ];

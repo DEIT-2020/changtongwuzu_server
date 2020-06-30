@@ -1,6 +1,6 @@
 
 class Test {
-  final String id;
+  final int id;
   String testquestion;
   String A;
   String B;
@@ -9,4 +9,5 @@ class Test {
   String key1;
 
   Test(this.id, this.testquestion,this.A,this.B,this.C,this.key,this.key1);
+//String toString() => '$key1';
 }

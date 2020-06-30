@@ -5,4 +5,5 @@ class RoutePaths {
   static final teststart = RoutePath(path: 'teststart');
   static final score = RoutePath(path: 'score');
   static final card = RoutePath(path: 'card');
+  static final user=RoutePath(path:'user');
 }
