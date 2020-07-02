@@ -7,13 +7,7 @@
   position: relative;
 }
 
-button {
-  font-family: Arial;
-  background-color: white;
-  border: none;
-  cursor: pointer;
-  cursor: hand;
-}
+
 label {
   -webkit-perspective: 2000px;
   perspective: 2000px;

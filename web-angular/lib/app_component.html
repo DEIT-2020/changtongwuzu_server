@@ -1,0 +1,14 @@
+<center><h1>{{title}}</h1></center>
+<center><nav>
+<a [routerLink]="RoutePaths.user.toUrl()"
+ [routerLinkActive]="'active'">Login</a>
+<a [routerLink]="RoutePaths.card.toUrl()"
+ [routerLinkActive]="'active'">Card</a>
+<a [routerLink]="RoutePaths.teststart.toUrl()"
+ [routerLinkActive]="'active'">Teststart</a>                    
+<a [routerLink]="RoutePaths.tests.toUrl()"
+ [routerLinkActive]="'active'">Test</a>
+<a [routerLink]="RoutePaths.score.toUrl()"
+ [routerLinkActive]="'active'">Score</a>
+</nav></center>
+<router-outlet [routes]="Routes.all"></router-outlet>
