@@ -15,7 +15,7 @@ class QuestionController extends ResourceController {
     return Response.ok(questions);
   }
 
-
+/*
   @Operation.get('testid')
   Future<Response> getUserquestionsByNum({@Bind.query('testid') int testid}) async {
     final questionQuery = Query<Question>(context)
@@ -27,7 +27,7 @@ class QuestionController extends ResourceController {
         }
     return Response.ok(questions);
   }
-  
+  */
 
   
 }
