@@ -88,6 +88,10 @@ Future<Response> addTest(@Bind.body() Test test) async {
     return Response.ok(insertedTest);
 }
 */
+<<<<<<< HEAD
 
 }
 
+=======
+}
+>>>>>>> eea4de4bbb5c7999447dfeb218c046b1b68a2f3b

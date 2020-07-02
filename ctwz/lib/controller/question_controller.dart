@@ -16,7 +16,11 @@ class QuestionController extends ResourceController {
   }
 
 
+<<<<<<< HEAD
   /*@Operation.get('qid')
+=======
+  @Operation.get('testid')
+>>>>>>> eea4de4bbb5c7999447dfeb218c046b1b68a2f3b
   Future<Response> getUserquestionsByNum({@Bind.query('testid') int testid}) async {
     final questionQuery = Query<Question>(context)
     ..where((h) => h.testid).equalTo(testid);
@@ -28,6 +32,10 @@ class QuestionController extends ResourceController {
     return Response.ok(questions);
   }
   
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> eea4de4bbb5c7999447dfeb218c046b1b68a2f3b
   
 }
