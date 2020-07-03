@@ -182,6 +182,7 @@ display: table-cell;
     color: rgba(0,0,0,0.65);
     background-color:  #F9F0DA;
     border-color: #324B4E;
+    margin: 5px;
   }
   .bar1 form {
     height:42px;

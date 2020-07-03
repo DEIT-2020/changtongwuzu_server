@@ -73,7 +73,6 @@ h3{
     float: left;
     background-color: rgb(255, 255, 255);
     
-    height: 1.6em;
     border-radius: 2px;
   }
   .tests li.selected:hover {
