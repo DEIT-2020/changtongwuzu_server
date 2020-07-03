@@ -1,28 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Material+Icons);
 
-body {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 5vw;
-}
-
+<!--常规设置-->
 * {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 * {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-button {
-  margin-top: 20px;
-  font-family: Arial;
-  background-color: rgb(238, 238, 238);
-  border: none;
-  padding: 3px 10px;
-  border-radius: 4px;
-  cursor: pointer; cursor: hand;
-  width:90px;height:50px
 }
 
 .mdc-icon-button{
@@ -41,27 +25,35 @@ label {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   cursor: pointer;
+
+}
+a{
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #324B4E;
 }
 
 
-
-
+<!--卡片>
 *{ 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
 }
 .back,.front { 
+  position: relative;
 width: 320px;
-height:200px;
+height:190px;
 }
 .type{
+  position: relative;
   width: 320px;
   height: 20px;
 }
 .upper{ 
+  position: relative;
 width: 320px;
-height:160px;
+height:150px;
 background-color: grey;
 }
 .lower{
@@ -70,7 +62,7 @@ height: 20px;
 }
 .cardcontainer{ 
   width: 320px;
-  height:200px;
+  height:190px;
   position: relative; 
   transition: 1s; 
   transform-style: preserve-3d; 
@@ -82,13 +74,20 @@ height: 20px;
 }
 
 .back{ 
-  position: absolute; 
+  position: relative; 
   top: 0; 
   background-color: blanchedalmond; 
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   backface-visibility: hidden;
   vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+  text-align: center;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: rgb(154, 155, 154);
 }
 .word{
 text-align: center;
@@ -111,7 +110,8 @@ text-align: center;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 25px;
 color: honeydew;
-vertical-align:middle;display: table-cell;
+vertical-align:middle;
+display: table-cell;
 
 }
 .type{
@@ -134,8 +134,81 @@ vertical-align:middle;display: table-cell;
   }
   
   input {
-    display: block;
+    width: 100%;
+    height: 42px;
+    padding-left:10px;;
   }
+  div.search{
+    padding: 20px 0;
+  }
+  input,button {
+    border:none;
+    outline:none;
+  }
+  form {
+    position: relative;
+    width:300px;
+    margin:0 auto;
+    
+  }
+  button {
+    top:5px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    line-height: 1.499;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: rgba(0,0,0,0.65);
+    background-color:  #F9F0DA;
+    border-color: #324B4E;
+  }
+  .bar1 form {
+    height:42px;
+  }
+  .bar1 input {
+    width:280px;
+    border-radius:42px;
+    border:2px solid #324B4E;
+    background:#F9F0DA;
+    transition:.3s linear;
+    float: right;
+    
+  }
+  .bar1 input:focus {
+    width:300px;
+  }
+  .bar1 button {
+    background:none;
+    top:-2px;
+    right:0px;
+  }
+  .bar1 button:before {
+    content:"搜索";
+    font-family:FontAwesome;
+    color:#324b4e;
+  }
+
 
   label:hover :checked + .cardcontainer {
     transform: rotateY(160deg);
@@ -143,32 +216,128 @@ vertical-align:middle;display: table-cell;
     box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
   }
 
-
-.container{
-    width:1000px;
-    height:650px;
-    background-color:white;
-}
-.learn{
-    width: 1000px;
-    height: 700px;
-    padding: 10px;
-}
-.box-wrap {
-    width: 940x;
-    height:640 x;
+  .box-wrap {
+    list-style-type: none;
+    width: 1030px;
+    height: 590px;
 	text-align: center;
-	background-color: white;
-	overflow: hidden; 
+  background: white;
+  overflow: hidden;
+	
 }
 .box{
-  width:33%;
+  width: 33%;
   float: left;
+  margin-top: 2px;
+  margin-left: 3px;
+  margin-bottom: 5px;
 }
-.box-wrap>div {
-    width: 300px;
-    height: 200px;
-    margin: 10px;
-	float: left;
+.box input{
+  display: none;
+}
+.box-wrap>li {
+  position: relative;
+  width: 320px;
+  height: 190px;
+  margin: 3px;
 	background-color: white;
+}
+img{
+float: right;
+}
+.navigation button {
+  top:5px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+  line-height: 1.499;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+  cursor: pointer;
+  -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 0 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  color: rgba(0,0,0,0.65);
+  background-color:  #F9F0DA;
+  border-color: #324B4E;
+}
+
+<!--结构-->
+body {
+  top: 20px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container{
+  margin: 0px 20px;
+  width:1500px;
+  height:730px;
+  background-color:white;
+}
+.navigation{
+  width: 1470px;
+  height: 80px;
+  margin: 3px;
+  background-color:  white;
+}
+.learn{
+  float: left;
+  width: 1470px;
+  height: 580px;
+  margin: 10px;
+  background-color:  white;
+}
+
+.leftpart{
+  float: left;
+  width: 1460px;
+  height: 700px;
+  margin: 10px;
+  background-color: white;
+}
+
+.rightpart{
+  float: right;
+  width: 400px;
+  height: 700px;
+  margin: 10px;
+  background-color: violet;
+}
+.logo{
+  float: left;;
+  width: 530px;
+  height: 80px;
+  margin-left:0px ;
+  background-color:  white;
+}
+.searchcard{
+  float: left;
+  width: 500px;
+  height: 80px;
+  margin-left:0px ;
+  background-color:  white;
+}
+.register{
+  float: left;
+  width: 300px;
+  height: 80px;
+  margin-left:0px ;
+  background-color: white;
 }

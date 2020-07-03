@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:core';
 import 'dart:html';
-import 'package:angular/angular.dart';
+
 
 Element cardList=querySelector('#cardList');
 Future main() async{
@@ -9,17 +9,22 @@ Future main() async{
 await HttpRequest.getString(url).then((String result){
     final data =json.decode(result);
     String temp='';
-    for(var i=0;i<1;i++){
+    for(var i=0;i<9;i++){
       temp=temp+'''
-      <div class="box"><label>
+      <li class="box"><label>
+                  <input type="checkbox" />
                   <div class="cardcontainer">
-                  <div class="back">
+                  
       ''';
-      temp=temp+'<div class="word">'+data[i]['knowledge'].toString()+'</div>';
-      temp=temp+'''</div> 
+      temp=temp+'<div class="back">'+data[i]['knowledge'].toString()+'</div>';
+      temp=temp+'''
                   <div class="front">''';
-      temp=temp+'<div class="type">'+data[i]['type']+'</div>';
-      temp=temp+'<div class="title">'+data[i]['title']+'</div>';
+      temp=temp+'<div class="type">'+data[i]['type'].toString()+'</div>';
+      temp=temp+'<div class="upper">'+data[i]['title'].toString()+'</div>';
+      temp=temp+'''</div>
+                  </div>
+                  </label>
+                  </li>''';
       print(temp);
     }
     cardList.innerHtml=temp;

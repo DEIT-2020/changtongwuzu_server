@@ -17,18 +17,20 @@ void main() {
 await HttpRequest.getString(url).then((String result){
     final data =json.decode(result);
     String biu='';
-    for(var i=0;i<2;i++){
+    for(var i=0;i<8;i++){
       biu=biu+'''<ul class="tests">     
                 <br />''';
-      biu=biu+'<span class="badge">'+'<div class="testquestion">'+data[i]['testquestion'].toString()+'</div>'+'</span>';
+      biu=biu+'<span class="badge">'+'<div class="testquestion">'+'${i+1}.'+data[i]['testquestion'].toString()+'</div>'+'</span>';
       //biu=biu+'<div class="testquestion">'+data[i]['testquestion'].toString()+'</div>';
       //biu=biu+'''<p><rl>''';
-      biu=biu+' <br />''<p>'+'<rl>'+'<div class="optionA">'+data[i]['optionA'].toString()+'</div>'+'</rl>'+'</p>'+' <br />';
-      biu=biu+'<p>'+'<rl>'+'<div class="optionB">'+data[i]['optionB'].toString()+'</div>'+'</rl>'+'</p>'+ '<br />';
-      biu=biu+'<p>'+'<rl>'+'<div class="optionC">'+data[i]['optionC'].toString()+'</div>'+'</rl>'+'</p>'+' <br />';
+      biu=biu+' <br />''<p>'+'<li>'+'<div class="optionA">'+data[i]['optionA'].toString()+'</div>'+'</li>'+'</p>'+' <br />';
+      biu=biu+'<p>'+'<li>'+'<div class="optionB">'+data[i]['optionB'].toString()+'</div>'+'</li>'+'</p>'+ '<br />';
+      biu=biu+'<p>'+'<li>'+'<div class="optionC">'+data[i]['optionC'].toString()+'</div>'+'</li>'+'</p>'+' <br />';
       //biu=biu+'<div class="key">'+data[i]['key'].toString()+'</div>';
       //biu=biu+''' <form #keyForm="ngForm" (ngSubmit)="onSubmit(keyForm.value)">''';
-      biu=biu+'''<label>yourkey:&nbsp;<input></input></label>''';
+      biu=biu+'''<div class="anwser"> 
+        你的回答:&nbsp;<input></input>
+        </div>''';
       //biu=biu+'''<label>yourkey:&nbsp;<input [(ngModel)]="testkey"  #testkey="ngModel"></input></label>''';
       biu=biu+'</ul>';
        
