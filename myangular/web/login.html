@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      (function () { 
+        var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/); 
+        document.write('<base href="' + (m ? m[0] : '/') + '" />'); 
+       }()); 
+
+    </script>
+    <title>个人中心</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+          crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script defer src="main.dart.js"></script>
+  </head>
+  <div class="container">
+    <div [hidden]="submitted">
+      <h1>用户登录</h1>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" required
+                 [(ngModel)]="model.name"
+                 #name="ngForm"
+                 [class.is-valid]="name.valid"
+                 [class.is-invalid]="!name.valid"
+                 ngControl="name">
+          <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" id="password"
+                 [(ngModel)]="model.alterPassword"
+                 ngControl="alterPassword">
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <input type="text" class="form-control" id="gender"
+                 [(ngModel)]="model.gender"
+                 ngControl="Gender">
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+            <button (click)="clear()" type="button" class="btn">
+              Clear
+            </button>
+             <div>
+                    <center><button><center><a href="index.html">进入首页</ a></center></button></center>
+                </div>
+      </form>
+    </div>
+    
+  </div>
+
+  
