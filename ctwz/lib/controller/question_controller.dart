@@ -16,18 +16,33 @@ class QuestionController extends ResourceController {
   }
 
 
+<<<<<<< HEAD
   /*@Operation.get('qid')
   Future<Response> getUserquestionsByNum({@Bind.query('testid') int testid}) async {
+=======
+
+
+
+  @Operation.get('qid')
+/*>>>>>>> eea4de4bbb5c7999447dfeb218c046b1b68a2f3b */
+  Future<Response> getUserquestionsByNum({@Bind.query('qid') int qid}) async {
+>>>>>>> changqing
     final questionQuery = Query<Question>(context)
-    ..where((h) => h.testid).equalTo(testid);
+    ..where((h) => h.qid).equalTo(qid);
    final questions = await questionQuery.fetch();
 
-    if (testid != null) {
+    if (qid != null) {
           return Response.notFound();
         }
     return Response.ok(questions);
   }
+<<<<<<< HEAD
   
 */
+=======
+
+ 
+
+>>>>>>> changqing
   
 }

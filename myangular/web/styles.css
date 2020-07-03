@@ -1,0 +1,174 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Material+Icons);
+
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5vw;
+}
+
+* {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: rgb(238, 238, 238);
+  border: none;
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+  width:90px;height:50px
+}
+
+.mdc-icon-button{
+  float: right;
+  position: relative;
+}
+
+
+label {
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: inline;
+  position: relative;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+
+
+
+*{ 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+.back,.front { 
+width: 320px;
+height:200px;
+}
+.type{
+  width: 320px;
+  height: 20px;
+}
+.upper{ 
+width: 320px;
+height:160px;
+background-color: grey;
+}
+.lower{
+width: 320px;
+height: 20px;
+}
+.cardcontainer{ 
+  width: 320px;
+  height:200px;
+  position: relative; 
+  transition: 1s; 
+  transform-style: preserve-3d; 
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.back{ 
+  position: absolute; 
+  top: 0; 
+  background-color: blanchedalmond; 
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  vertical-align: middle;
+}
+.word{
+text-align: center;
+padding: 30px 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+color: rgb(154, 155, 154);
+vertical-align:middle;
+display: table-cell;
+}
+.front{ 
+  position: absolute; 
+  top: 0; 
+  background-color: white;
+  backface-visibility: hidden;
+  
+}
+.upper{
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 25px;
+color: honeydew;
+vertical-align:middle;display: table-cell;
+
+}
+.type{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: black;
+  vertical-align:middle;
+  }
+
+  label:hover .cardcontainer {
+    -webkit-transform: rotateY(20deg);
+    transform: rotateY(20deg);
+    box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
+  }
+
+  :checked + .cardcontainer {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+  }
+  
+  input {
+    display: block;
+  }
+
+  label:hover :checked + .cardcontainer {
+    transform: rotateY(160deg);
+    -webkit-transform: rotateY(160deg);
+    box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
+  }
+
+
+.container{
+    width:1000px;
+    height:650px;
+    background-color:white;
+}
+.learn{
+    width: 1000px;
+    height: 700px;
+    padding: 10px;
+}
+.box-wrap {
+    width: 940x;
+    height:640 x;
+	text-align: center;
+	background-color: white;
+	overflow: hidden; 
+}
+.box{
+  width:33%;
+  float: left;
+}
+.box-wrap>div {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+	float: left;
+	background-color: white;
+}
