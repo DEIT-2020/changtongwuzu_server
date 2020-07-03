@@ -21,10 +21,7 @@ class Routes {
     routePath: RoutePaths.score,
     component: score_template.ScoreComponentNgFactory,
 );
-  static final card = RouteDefinition(
-    routePath: RoutePaths.card,
-    component: card_template.CardComponentNgFactory,
-);
+  
   static final user = RouteDefinition(
     routePath: RoutePaths.user,
     component: user_template.UserComponentNgFactory,
@@ -34,7 +31,7 @@ class Routes {
     tests,
     teststart,
     score,
-    card,
+   
     user,
     RouteDefinition.redirect(
     path: '',

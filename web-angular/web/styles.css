@@ -1,129 +1,265 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Material+Icons);
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-h2 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
-h3{
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
-body {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 5vw;
-}
-body, input[text], button { 
-  color: #888; 
-  font-family: Cambria, Georgia; 
-} 
-a { 
-cursor: pointer; 
-cursor: hand; 
-} 
-button { 
-  font-family: Arial; 
-  background-color: #eee; 
-  border: none; 
-  padding: 5px 10px; 
-  border-radius: 4px; 
-  cursor: pointer; 
-  cursor: hand; 
-} 
-button:hover { 
-  background-color: #cfd8dc; 
-} 
-button:disabled { 
-  background-color: #eee; 
-  color: #aaa; 
-  cursor: auto; 
-} 
 
+<!--常规设置-->
 * {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
-label { 
-  padding-right: 0.5em; 
-} 
-h4{ 
-  color: #444; 
-  font-family: Arial, Helvetica, sans-serif; 
-  font-weight: lighter; 
-} 
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mdc-icon-button{
+  float: right;
+  position: relative;
+}
+
+
+label {
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: inline;
+  position: relative;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+}
 
 
 
-nav a { 
-  padding: 5px 10px; 
-  text-decoration: none; 
-  margin-right: 10px; 
-  margin-top: 10px; 
-  display: inline-block; 
-  background-color: #eee; 
-  border-radius: 4px; 
- } 
-nav a:visited, a:link { 
-color: #607D8B; 
-} 
-   nav a:hover { 
-   color: #039be5; 
-   background-color: #CFD8DC; 
-} 
- nav a.active { 
-   color: #039be5; 
- } 
+<!--卡片>
+*{ 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+.back,.front { 
+  position: relative;
+width: 320px;
+height:190px;
+}
+.type{
+  position: relative;
+  width: 320px;
+  height: 20px;
+}
+.upper{ 
+  position: relative;
+width: 320px;
+height:150px;
+background-color: grey;
+}
+.lower{
+width: 320px;
+height: 20px;
+}
+.cardcontainer{ 
+  width: 320px;
+  height:190px;
+  position: relative; 
+  transition: 1s; 
+  transform-style: preserve-3d; 
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-     /* items class */ 
-     .items { 
-       margin: 0 0 2em 0; 
-       list-style-type: none; 
-       padding: 0; 
-       width: 24em; 
-     } 
-     .items li { 
-       cursor: pointer; 
-       position: relative; 
-       left: 0; 
-       background-color: #EEE; 
-       margin: .5em; 
-       padding: .3em 0; 
-       height: 1.6em; 
-       border-radius: 4px; 
-     } 
-     .items li:hover { 
-       color: #607D8B; 
-       background-color: #DDD; 
-       left: .1em; 
-     } 
-     .items li.selected { 
-       background-color: #CFD8DC; 
-       color: white; 
-     } 
-     .items li.selected:hover { 
-       background-color: #BBD8DC; 
-     } 
-     .items .text { 
-       position: relative; 
-       top: -3px; 
-     } 
-     .items .badge { 
-       display: inline-block; 
-       font-size: small; 
-       color: white; 
-       padding: 0.8em 0.7em 0 0.7em; 
-       background-color: #607D8B; 
-       line-height: 1em; 
-       position: relative; 
-       left: -1px; 
-       top: -4px; 
-       height: 1.8em; 
-       margin-right: .8em; 
-      border-radius: 4px 0 0 4px; 
-     } 
+.back{ 
+  position: relative; 
+  top: 0; 
+  background-color: blanchedalmond; 
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+  text-align: center;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: rgb(154, 155, 154);
+}
+.word{
+text-align: center;
+padding: 30px 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+color: rgb(154, 155, 154);
+vertical-align:middle;
+display: table-cell;
+}
+.front{ 
+  position: absolute; 
+  top: 0; 
+  background-color: white;
+  backface-visibility: hidden;
+  
+}
+.upper{
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 25px;
+color: honeydew;
+vertical-align:middle;
+display: table-cell;
+
+}
+.type{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: black;
+  vertical-align:middle;
+  }
+
+  label:hover .cardcontainer {
+    -webkit-transform: rotateY(20deg);
+    transform: rotateY(20deg);
+    box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
+  }
+
+  :checked + .cardcontainer {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+  }
+  
+  input {
+    width: 100%;
+    height: 42px;
+    padding-left:10px;;
+  }
+  div.search{
+    padding: 20px 0;
+  }
+  input,button {
+    border:none;
+    outline:none;
+  }
+  form {
+    position: relative;
+    width:300px;
+    margin:0 auto;
+    
+  }
+button {
+    height:42px;
+    width:42px;
+    cursor:pointer;
+    position: absolute;
+  }
+  .bar1 form {
+    height:42px;
+  }
+  .bar1 input {
+    width:280px;
+    border-radius:42px;
+    border:2px solid #324B4E;
+    background:#F9F0DA;
+    transition:.3s linear;
+    float: right;
+    
+  }
+  .bar1 input:focus {
+    width:300px;
+  }
+  .bar1 button {
+    background:none;
+    top:-2px;
+    right:0px;
+  }
+  .bar1 button:before {
+    content:"搜索";
+    font-family:FontAwesome;
+    color:#324b4e;
+  }
+
+
+  label:hover :checked + .cardcontainer {
+    transform: rotateY(160deg);
+    -webkit-transform: rotateY(160deg);
+    box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .box-wrap {
+    list-style-type: none;
+    width: 1030px;
+    height: 590px;
+	text-align: center;
+  background: white;
+  overflow: hidden;
+	
+}
+.box{
+  width: 33%;
+  float: left;
+  margin-top: 2px;
+  margin-left: 3px;
+  margin-bottom: 5px;
+}
+.box input{
+  display: none;
+}
+.box-wrap>li {
+  position: relative;
+  width: 320px;
+  height: 190px;
+  margin: 3px;
+	background-color: white;
+}
+
+
+
+<!--结构-->
+body {
+  top: 20px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container{
+  margin: 0px 20px;
+  width:1480px;
+  height:730px;
+  background-color:red;
+}
+.navigation{
+  width: 1030px;
+  height: 80px;
+  margin: 3px;
+  background-color: chartreuse;
+}
+.learn{
+  float: left;
+  width: 1030px;
+  height: 580px;
+  margin: 10px;
+  background-color: yellow;
+}
+
+.leftpart{
+  float: left;
+  width: 1040px;
+  height: 700px;
+  margin: 10px;
+  background-color: teal;
+}
+
+.rightpart{
+  float: right;
+  width: 400px;
+  height: 700px;
+  margin: 10px;
+  background-color: violet;
+}
+#searchcard{
+  float: right;;
+  width: 830px;
+  height: 80px;
+  margin-left:0px ;
+}
