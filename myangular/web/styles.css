@@ -1,5 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Material+Icons);
+
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5vw;
+}
+
+* {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
 * {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: rgb(238, 238, 238);
+  border: none;
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+  width:90px;height:50px
 }
 
 .mdc-icon-button{
@@ -111,7 +134,7 @@ vertical-align:middle;display: table-cell;
   }
   
   input {
-    display: none;
+    display: block;
   }
 
   label:hover :checked + .cardcontainer {
